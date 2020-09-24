@@ -15,4 +15,3 @@ def test_button_add_to_cart(browser):
     button_to_cart = browser.find_element_by_xpath(locators.button).text
     assert len(button_to_cart) != 0, "Button text should not be null"
 
-    browser.quit()
