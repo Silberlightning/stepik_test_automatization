@@ -36,3 +36,4 @@ def test_user_registration():
     assert "Спасибо за регистрацию" in success.text
 
     browser.guit()
+
