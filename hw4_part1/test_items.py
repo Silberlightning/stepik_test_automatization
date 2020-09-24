@@ -1,5 +1,4 @@
 import locators as locators
-from selenium import webdriver
 
 def test_button_add_to_cart(browser):
 
