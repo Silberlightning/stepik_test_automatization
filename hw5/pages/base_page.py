@@ -1,7 +1,5 @@
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
-import time
-
 import math
 
 
@@ -20,7 +18,6 @@ class BasePage():
         except(NoSuchElementException):
             return False
         return True
-
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert

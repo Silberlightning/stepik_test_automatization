@@ -1,8 +1,4 @@
-import math
-
 import pytest
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoAlertPresentException
 from .pages.product_page import ProductPage
 
 
