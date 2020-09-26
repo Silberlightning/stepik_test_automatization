@@ -3,6 +3,9 @@ from selenium.webdriver.common.by import By
 
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    CART_LINK = (By.CSS_SELECTOR, "a[href*=basket]")
+    CART_ITEM_INSIDE = (By.CSS_SELECTOR, ".thumbnail")
+    CART_EMPTY_TEXT = (By.CSS_SELECTOR, "#content_inner p")
 
 
 class LoginPageLocators():
