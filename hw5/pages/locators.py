@@ -10,6 +10,11 @@ class LoginPageLocators():
     REGISTER_FORM = (By.ID, "register_form")
 
 
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+
+
 class ProductPageLocators():
     CART_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
     SUCCESS_ITEM_ADDED = (By.CSS_SELECTOR, ".alertinner strong")
