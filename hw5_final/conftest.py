@@ -21,12 +21,10 @@ def browser(request):
 
     if browser_name == "chrome":
         print("\nstart chrome browser for test..")
-        browser = webdriver.Chrome()
         browser = webdriver.Chrome(options=options)
         browser.maximize_window()
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")
-        browser = webdriver.Firefox()
         browser = webdriver.Firefox(options=options)
         browser.maximize_window()
     else:
