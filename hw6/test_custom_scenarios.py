@@ -37,7 +37,7 @@ class TestCustomScenarios():
 
     def test_guest_can_change_site_languange(self, browser):
         link = "http://selenium1py.pythonanywhere.com/"
-        language = 'en-gb'
+        language = 'uk'
         page = BasePage(browser, link)
         page.open()
         page.change_language(language)

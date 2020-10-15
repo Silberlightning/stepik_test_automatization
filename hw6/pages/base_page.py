@@ -27,50 +27,11 @@ class BasePage():
 
     def language_is_changed(self, language):
         button_text = self.browser.find_element(*BasePageLocators.LANGUAGE_BUTTON).text
-        if language == "ar":
-            assert button_text == 'نفّذ', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "ca":
-            assert button_text == 'Anar', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "cs":
-            assert button_text == 'Provést', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "da":
-            assert button_text == 'Udfør', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "de":
-            assert button_text == 'Ausführen', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "en-gb":
-            assert button_text == 'Go', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "el":
-            assert button_text == 'Μετάβαση', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "es":
-            assert button_text == 'Ir', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "fi":
-            assert button_text == 'Suorita', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "fr":
-            assert button_text == 'Envoyer', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "it":
-            assert button_text == 'Vai', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "ko":
-            assert button_text == '실행', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "nl":
-            assert button_text == 'Uitvoeren', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "pl":
-            assert button_text == 'Wykonaj', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "pt":
-            assert button_text == 'Ir', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "pt-br":
-            assert button_text == 'Ir', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "ro":
-            assert button_text == 'Start', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "ru":
-            assert button_text == 'Выполнить', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "sk":
-            assert button_text == 'Vykonať', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "uk":
-            assert button_text == 'Вперед', 'Language " ' + str(language) + '" is not correct changed'
-        elif language == "zh-hans":
-            assert button_text == 'Go', 'Language " ' + str(language) + '" is not correct changed'
-        else:
-            print("Language is not changed")
+        dict = {'ar': 'نفّذ', 'ca': 'Anar', 'cs': 'Provést', 'da': 'Udfør', 'de': 'Ausführen', 'en-gb': 'Go',
+                'el': 'Μετάβαση', 'es': 'Ir', 'fi': 'Suorita', 'fr': 'Envoyer', 'it': 'Vai', 'ko': '실행',
+                'nl': 'Uitvoeren', 'pl': 'Wykonaj', 'pt': 'Ir', 'pt-br': 'Ir', 'ro': 'Start', 'ru': 'Выполнить',
+                'sk': 'Vykonať', 'uk': 'Вперед', 'zh-hans': 'Go'}
+        assert button_text == dict[language], 'Button language has wrong text (not in selected language)'
 
     def choose_item(self):
         open_item = self.browser.find_element(*BasePageLocators.ICON_ITEM)
