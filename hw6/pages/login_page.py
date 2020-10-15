@@ -3,6 +3,11 @@ from .locators import LoginPageLocators
 
 
 class LoginPage(BasePage):
+    def __init__(self, browser: object, url: object, timeout: object = 10) -> object:
+        self.browser = browser
+        self.url = url
+        self.browser.implicitly_wait(timeout)
+
     def register_new_user(self, email, password):
         self.should_be_register_form()
         mail = self.browser.find_element(*LoginPageLocators.REGISTER_MAIL)

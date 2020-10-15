@@ -10,9 +10,9 @@ from selenium.webdriver.support.ui import Select
 
 
 class BasePage():
-    def __init__(self, browser: object, url: object, timeout: object = 10) -> object:
+    def __init__(self, browser: object, timeout: object = 10) -> object:
         self.browser = browser
-        self.url = url
+        self.url = 'http://selenium1py.pythonanywhere.com/'
         self.browser.implicitly_wait(timeout)
 
     def should_be_authorized_user(self):

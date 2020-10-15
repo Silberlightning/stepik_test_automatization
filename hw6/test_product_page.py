@@ -6,7 +6,6 @@ from .pages.base_page import BasePage
 import time
 
 
-@pytest.mark.need_review
 class TestGuestAddPromoItems():
     @pytest.mark.parametrize('link',
                              ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
@@ -36,16 +35,15 @@ class TestUserAddToBasketFromProductPage():
     def setup(self, browser):
         email = str(time.time()) + "@fakemail.org"
         password = "Zuccini15%%"
-        link = "http://selenium1py.pythonanywhere.com/"
-        page = BasePage(browser, link)
+        page = BasePage(browser)
         page.open()
         page.go_to_login_page()
-        page = LoginPage(browser, link)
+        page = LoginPage(browser, browser.current_url)
         page.register_new_user(email, password)
         page.should_be_authorized_user()
 
     def test_user_cant_see_success_message(self, browser):
-        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
         product_page = ProductPage(browser, link)
         product_page.open()
         product_page.should_not_be_success_message()
@@ -75,7 +73,6 @@ class TestGuestFromProductPage():
         page.open()
         page.go_to_login_page()
         login_page = LoginPage(browser, browser.current_url)
-        login_page.open()
         login_page.should_be_login_page()
 
     @pytest.mark.need_review
@@ -84,6 +81,6 @@ class TestGuestFromProductPage():
         product_page = ProductPage(browser, link)
         product_page.open()
         basket_page = product_page.go_to_cart_page()
-        basket_page = BasketPage(browser, link)
+        basket_page = BasketPage(browser, browser.current_url)
         basket_page.should_be_empty_cart()
         basket_page.should_be_text_about_empty_cart()

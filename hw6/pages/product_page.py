@@ -3,6 +3,11 @@ from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
+    def __init__(self, browser: object, url: object, timeout: object = 10) -> object:
+        self.browser = browser
+        self.url = url
+        self.browser.implicitly_wait(timeout)
+
     def add_item_to_cart(self):
         link = self.browser.find_element(*ProductPageLocators.CART_BUTTON)
         link.click()
@@ -16,8 +21,7 @@ class ProductPage(BasePage):
         return item_product_page.text
 
     def should_be_in_the_cart(self):
-        assert self.check_item_name_in_the_cart() == self.check_item_name_on_product_page(), \
-            "Item in the cart is not the same as added"
+        assert self.check_item_name_in_the_cart() == self.check_item_name_on_product_page(), "Item in the cart is not the same as added"
 
     def check_item_price_in_the_cart(self):
         item_in_the_cart = self.browser.find_element(*ProductPageLocators.PRICE_IN_THE_CART)
