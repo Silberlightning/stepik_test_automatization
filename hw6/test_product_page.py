@@ -80,7 +80,7 @@ class TestGuestFromProductPage():
         link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
         product_page = ProductPage(browser, link)
         product_page.open()
-        basket_page = product_page.go_to_cart_page()
+        product_page.go_to_cart_page()
         basket_page = BasketPage(browser, browser.current_url)
         basket_page.should_be_empty_cart()
         basket_page.should_be_text_about_empty_cart()
